@@ -26,4 +26,3 @@ parts:
     - file: MordredAndMorgan
     - file: ThirdPartyEmbeddings
     - file: PCAAndVCD
-    - file: DrGerkinCheck
