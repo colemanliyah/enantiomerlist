@@ -10,10 +10,13 @@ The results for strictly using Mordred features were as follows:
 
 With a correlation metric value of 0.56:
 
+<img src="./modelresults/mordred_correlation.png">
 
 The results for strictly using Morgan features were as follows:
 
-<img src="./modelresults/mordred.png">
+<img src="./modelresults/morgan.png">
 
 With a correlation metric value of 0.57:
+
+<img src="./modelresults/morgan_correlation.png">
 
