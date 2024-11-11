@@ -10,12 +10,12 @@ The results for strictly using Morgan features were as follows:
 ```
 
 :::{figure-md} markdown-fig
-<img src="../modelresults/mordred.png">
+<img src="./modelresults/mordred.png">
 
 Test
 :::
 
-<!-- ![morgan](../modelresults/mordred.png) -->
+<!-- ![morgan](./modelresults/mordred.png) -->
 
 With a correlation metric value of 0.5:
 
