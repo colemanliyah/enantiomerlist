@@ -9,12 +9,6 @@ The results for strictly using Morgan features were as follows:
 ```{figure} ./modelresults/mordred.png
 ```
 
-:::{figure-md} markdown-fig
-<img src="./modelresults/mordred.png">
-
-Test
-:::
-
 With a correlation metric value of 0.5:
 
 <!-- ![alt text](https://lh3.googleusercontent.com/keep-bbsk/AP6BvTR8Pvzt9MzJYZTXMNzbyUZQah4-6sjUnw1xfVyn0GYwU9Aw-d1avuwwpR4Q-kYkIa4sMcVkKex1RmKsWdjW3VTPE1xIMeEz19flnoiXZQg0OXWD=s512) -->
