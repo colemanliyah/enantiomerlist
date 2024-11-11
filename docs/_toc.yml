@@ -26,3 +26,4 @@ parts:
     - file: MordredAndMorgan
     - file: ThirdPartyEmbeddings
     - file: PCAAndVCD
+      title: Testing with PCA and VCD Features
