@@ -11,7 +11,7 @@ parts:
     - file: chirality
     - file: enantiomer
     - file: odordivergence
-  - caption: Research
+  - caption: Research Project
     chapters:
     - file: problemstatement
     - file: pastapproach
@@ -19,7 +19,7 @@ parts:
     - file: detectionthreshold
     - file: svr
     - file: conclusion
-  - caption: Notebook
+  - caption: Notebooks With Code
     chapters:
     - file: LoadData
     - file: CutDataFrameHalf
