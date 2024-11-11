@@ -1,0 +1,1465 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Predicting Divergence Notebook &#8212; Enantiomer Odor Thesis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3rd Party Embeddings" href="ThirdPartyEmbeddings.html" />
+    <link rel="prev" title="Conclusion" href="conclusion.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Enantiomer Odor Thesis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="home.html">
+                    Predicting Odor Divergence of Enantiomers
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chirality.html">
+   1. Chirality
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="enantiomer.html">
+   2. Enantiomers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="odordivergence.html">
+   Odor Divergence
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Research
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="problemstatement.html">
+   Predicting Odor Divergence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pastapproach.html">
+   Previous Approach
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="newapproach.html">
+   New Approach - Structural Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="detectionthreshold.html">
+   Detection Threshold
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="themodel.html">
+   Support Vector Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="conclusion.html">
+   Conclusion
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notebook
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Predicting Divergence Notebook
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ThirdPartyEmbeddings.html">
+   3rd Party Embeddings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MordredAndMorgan.html">
+   Mordred and Morgan
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PCAAndVCD.html">
+   PCA and VCD (Could delete since there were no matches)
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/PredictingOdorDivergenceModel.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPredictingOdorDivergenceModel.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/PredictingOdorDivergenceModel.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Predicting Divergence Notebook
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preliminaries">
+   Preliminaries
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-data">
+   Load Data
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#liyah-stop-here-i-can-explain-what-i-am-doing-in-the-next-section-another-time">
+     Liyah, stop here.  I can explain what I am doing in the next section another time.
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Predicting Divergence Notebook</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Predicting Divergence Notebook
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preliminaries">
+   Preliminaries
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-data">
+   Load Data
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#liyah-stop-here-i-can-explain-what-i-am-doing-in-the-next-section-another-time">
+     Liyah, stop here.  I can explain what I am doing in the next section another time.
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="predicting-divergence-notebook">
+<h1>Predicting Divergence Notebook<a class="headerlink" href="#predicting-divergence-notebook" title="Permalink to this headline">#</a></h1>
+</section>
+<section id="preliminaries">
+<h1>Preliminaries<a class="headerlink" href="#preliminaries" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Recursive feature elimination to improve model and identify features</span>
+<span class="c1"># TODO: Use harmonic mean (within pair) detection threshold as predictor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Gets the updates from the development files that are imported</span>
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The autoreload extension is already loaded. To reload it, use:
+  %reload_ext autoreload
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Imports the pands library, the math library, and the init class python file</span>
+<span class="c1">#Last line: updates matlab library that is used in init file</span>
+<span class="kn">import</span> <span class="nn">Utils</span> <span class="k">as</span> <span class="nn">model_helpers</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-data">
+<h1>Load Data<a class="headerlink" href="#load-data" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loads in the data</span>
+<span class="n">load_smiles_strings</span> <span class="o">=</span> <span class="n">model_helpers</span><span class="o">.</span><span class="n">load_other_smiles</span><span class="p">(</span><span class="n">coleman</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">enantiomer_data</span> <span class="o">=</span> <span class="n">model_helpers</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="s2">&quot;coleman&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded 456 molecules
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Groups each pair of enantiomers by making them have the same number associated with column &quot;N&quot;</span>
+<span class="c1"># Takes each pair of enantiomers and computes the ratio of the Normalized Detection Thresholds between the two</span>
+<span class="c1"># Sets the Normalized Detection Thresholds to be of the same type to avoid type errors later on</span>
+<span class="n">enantiomer_data</span><span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">enantiomer_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">enantiomer_data</span><span class="p">[</span><span class="s1">&#39;Normalized Detection Threshold&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">enantiomer_data</span><span class="p">[</span><span class="s1">&#39;Normalized Detection Threshold&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
+<span class="n">enantiomer_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Molecule Name</th>
+      <th>Pubchem ID #</th>
+      <th>Note</th>
+      <th>SMILES String</th>
+      <th>Other SMILES</th>
+      <th>Method</th>
+      <th>Contributor</th>
+      <th>Detection Threshold</th>
+      <th>Detection Units</th>
+      <th>Normalized Detection Threshold</th>
+      <th>Molecule Odour</th>
+      <th>Resources</th>
+      <th>N</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>(R)-(-)-gamma-ionone</td>
+      <td>11389922</td>
+      <td>NaN</td>
+      <td>CC(=O)/C=C/[C@H]1C(=C)CCCC1(C)C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.10E+01</td>
+      <td>ppb water</td>
+      <td>11.00</td>
+      <td>Weak green, fruity, pineapple-like odor with m...</td>
+      <td>Rows 66-100 are from here: https://www.jstage....</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>(S)-(+)-gamma-ionone</td>
+      <td>11194862</td>
+      <td>NaN</td>
+      <td>CC(=O)/C=C/[C@@H]1C(=C)CCCC1(C)C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7.00E-02</td>
+      <td>ppb water</td>
+      <td>0.07</td>
+      <td>Linear, very pleasant, floral, green, woody od...</td>
+      <td>Rows 101-121 are from here: https://github.com...</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>(4R)-(-)-carvone</td>
+      <td>439570</td>
+      <td>NaN</td>
+      <td>CC1=CC[C@H](CC1=O)C(=C)C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.00E+00</td>
+      <td>ppb</td>
+      <td>2.00</td>
+      <td>sweet spearmint, fresh herbal</td>
+      <td>Rows 122 - 193 are from here: https://github.c...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>(4S)-(+)-carvone</td>
+      <td>16724</td>
+      <td>NaN</td>
+      <td>CC1=CC[C@@H](CC1=O)C(=C)C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.30E+02</td>
+      <td>ppb</td>
+      <td>130.00</td>
+      <td>caraway, fresh herbal</td>
+      <td>Rows 194-223 are from here: https://github.com...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>(4R,7R)-(+)-galaxolide</td>
+      <td>14177988</td>
+      <td>NaN</td>
+      <td>C[C@H]1COCC2=CC3=C(C=C12)C([C@H](C3(C)C)C)(C)C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.40E-01</td>
+      <td>ppb in air</td>
+      <td>0.44</td>
+      <td>weak to almost odorless</td>
+      <td>Rows 224-267 are from here: https://github.com...</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Adding all new smiles strings from &quot;Other SMILES&quot; column to official &quot;SMILES String&quot; column</span>
+<span class="n">enantiomer_data</span><span class="p">[</span><span class="s2">&quot;SMILES String&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">enantiomer_data</span><span class="p">[</span><span class="s2">&quot;Other SMILES&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">combine_first</span><span class="p">(</span><span class="n">enantiomer_data</span><span class="p">[</span><span class="s2">&quot;SMILES String&quot;</span><span class="p">])</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Searching for a specific molecule in the dataframe. Checking that SMILES Strings differ</span>
+<span class="n">enantiomer_data</span><span class="p">[</span><span class="n">enantiomer_data</span><span class="p">[</span><span class="s1">&#39;Molecule Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;lina&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Molecule Name</th>
+      <th>Pubchem ID #</th>
+      <th>Note</th>
+      <th>SMILES String</th>
+      <th>Other SMILES</th>
+      <th>Method</th>
+      <th>Contributor</th>
+      <th>Detection Threshold</th>
+      <th>Detection Units</th>
+      <th>Normalized Detection Threshold</th>
+      <th>Molecule Odour</th>
+      <th>Resources</th>
+      <th>N</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>72</th>
+      <td>(3R)-(-)-linalool</td>
+      <td>443158</td>
+      <td>NaN</td>
+      <td>CC(=CCC[C@](C)(C=C)O)C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8.00E-04</td>
+      <td>ppb</td>
+      <td>0.0008</td>
+      <td>floral, woody lavender</td>
+      <td>NaN</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>(3S)-(+)-linalool</td>
+      <td>67179</td>
+      <td>NaN</td>
+      <td>CC(=CCC[C@@](C)(C=C)O)C</td>
+      <td>CC(=CCC[C@@](C)(C=C)O)C</td>
+      <td>PubChem Isomeric SMILES</td>
+      <td>DW</td>
+      <td>7.40E-03</td>
+      <td>ppb</td>
+      <td>0.0074</td>
+      <td>sweet, floral; odor reminiscent of petitgrain ...</td>
+      <td>NaN</td>
+      <td>36</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enantiomer_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;enantiomer_data.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take the absolute log values and harmonic values for each enantiomeric pair</span>
+<span class="n">half_log_abs</span> <span class="o">=</span> <span class="n">enantiomer_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">model_helpers</span><span class="o">.</span><span class="n">log_abs</span><span class="p">)</span>
+<span class="n">half_det</span> <span class="o">=</span> <span class="n">enantiomer_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">model_helpers</span><span class="o">.</span><span class="n">harmonic</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creates a new data frame with just one odorant of each enantiomeric pair from the original dataset </span>
+<span class="c1"># adds the absolute value and detection threshold value for remaining odorants from enantiomering pair</span>
+<span class="n">half_enantiomer_data</span> <span class="o">=</span> <span class="n">enantiomer_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">half_enantiomer_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;log_abs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">half_log_abs</span><span class="o">.</span><span class="n">values</span>
+<span class="n">half_enantiomer_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;det&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">half_det</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This line makes sure that the rest of the exsisting null values are equal in the new data frame and in the new data frame&#39;s &#39;log_abs&#39; column</span>
+<span class="k">assert</span> <span class="n">half_log_abs</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="n">half_enantiomer_data</span><span class="p">[</span><span class="s1">&#39;log_abs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This line checks that log_abs and det columns were added properly</span>
+<span class="n">half_enantiomer_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Molecule Name</th>
+      <th>Pubchem ID #</th>
+      <th>Note</th>
+      <th>SMILES String</th>
+      <th>Other SMILES</th>
+      <th>Method</th>
+      <th>Contributor</th>
+      <th>Detection Threshold</th>
+      <th>Detection Units</th>
+      <th>Normalized Detection Threshold</th>
+      <th>Molecule Odour</th>
+      <th>Resources</th>
+      <th>N</th>
+      <th>log_abs</th>
+      <th>det</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>(R)-(-)-gamma-ionone</td>
+      <td>11389922</td>
+      <td>NaN</td>
+      <td>CC(=O)/C=C/[C@H]1C(=C)CCCC1(C)C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.10E+01</td>
+      <td>ppb water</td>
+      <td>11.00</td>
+      <td>Weak green, fruity, pineapple-like odor with m...</td>
+      <td>Rows 66-100 are from here: https://www.jstage....</td>
+      <td>0</td>
+      <td>2.196295</td>
+      <td>-0.856627</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>(4R)-(-)-carvone</td>
+      <td>439570</td>
+      <td>NaN</td>
+      <td>CC1=CC[C@H](CC1=O)C(=C)C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.00E+00</td>
+      <td>ppb</td>
+      <td>2.00</td>
+      <td>sweet spearmint, fresh herbal</td>
+      <td>Rows 122 - 193 are from here: https://github.c...</td>
+      <td>1</td>
+      <td>1.812913</td>
+      <td>0.595429</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>(4R,7R)-(+)-galaxolide</td>
+      <td>14177988</td>
+      <td>NaN</td>
+      <td>C[C@H]1COCC2=CC3=C(C=C12)C([C@H](C3(C)C)C)(C)C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.40E-01</td>
+      <td>ppb in air</td>
+      <td>0.44</td>
+      <td>weak to almost odorless</td>
+      <td>Rows 224-267 are from here: https://github.com...</td>
+      <td>2</td>
+      <td>2.643453</td>
+      <td>-2.699956</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>(4R,4aS,6R)-(+) nootkatone</td>
+      <td>1268142</td>
+      <td>NaN</td>
+      <td>C[C@@H]1CC(=O)C=C2[C@]1(C[C@@H](CC2)C(=C)C)C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.50E+01</td>
+      <td>ppm</td>
+      <td>15000.00</td>
+      <td>grapefruit odor</td>
+      <td>Rows 370-407 are from here: https://github.com...</td>
+      <td>3</td>
+      <td>3.643453</td>
+      <td>4.477023</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>(2S,4R)-(+) cis-2-methyl-4-propyl-1,3-oxathiane</td>
+      <td>6931728</td>
+      <td>NaN</td>
+      <td>CCC[C@@H]1CCO[C@@H](S1)C</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.00E+00</td>
+      <td>ppb</td>
+      <td>2.00</td>
+      <td>ctypical sulfurous, with a rubbery onion note;...</td>
+      <td>Rows 424-435 are from here: https://github.com...</td>
+      <td>4</td>
+      <td>0.301030</td>
+      <td>0.425969</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gets rid of all the invalid SMILES Strings, specifically the duplicates because we don&#39;t want to count their perceptual features twice and the &quot;nan&quot; values </span>
+<span class="n">half_enantiomer_data</span> <span class="o">=</span> <span class="n">half_enantiomer_data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SMILES String&#39;</span><span class="p">])</span>
+<span class="n">half_enantiomer_data</span> <span class="o">=</span> <span class="n">half_enantiomer_data</span><span class="p">[</span><span class="o">~</span><span class="n">half_enantiomer_data</span><span class="p">[</span><span class="s1">&#39;SMILES String&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;NaN&#39;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
+<span class="n">half_enantiomer_data</span> <span class="o">=</span> <span class="n">half_enantiomer_data</span><span class="p">[</span><span class="o">~</span><span class="n">half_enantiomer_data</span><span class="p">[</span><span class="s1">&#39;SMILES String&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assert statement to ensure that we only have unqiue smiles strings </span>
+<span class="k">assert</span> <span class="n">half_enantiomer_data</span><span class="p">[</span><span class="s1">&#39;SMILES String&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">half_enantiomer_data</span><span class="p">[</span><span class="s1">&#39;SMILES String&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;Number of SMILES strings should equal number of unique SMILES strings at this stage&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assert that there are no more nan values in the smiles string column</span>
+<span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">half_enantiomer_data</span><span class="p">[</span><span class="s1">&#39;SMILES String&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;nan&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;There should be no NaN SMILES strings at this point&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gets rid of the rows with a null log_abs value</span>
+<span class="n">half_enantiomer_data</span> <span class="o">=</span> <span class="n">half_enantiomer_data</span><span class="p">[</span><span class="o">~</span><span class="n">half_enantiomer_data</span><span class="p">[</span><span class="s1">&#39;log_abs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assert that there are no more log_abs of det values with the value null</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="nb">sum</span><span class="p">(</span><span class="n">half_enantiomer_data</span><span class="p">[</span><span class="s1">&#39;log_abs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="nb">sum</span><span class="p">(</span><span class="n">half_enantiomer_data</span><span class="p">[</span><span class="s1">&#39;det&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="liyah-stop-here-i-can-explain-what-i-am-doing-in-the-next-section-another-time">
+<h2>Liyah, stop here.  I can explain what I am doing in the next section another time.<a class="headerlink" href="#liyah-stop-here-i-can-explain-what-i-am-doing-in-the-next-section-another-time" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">RFE</span><span class="p">,</span> <span class="n">RFECV</span>
+<span class="n">svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">rfe</span> <span class="o">=</span> <span class="n">RFE</span><span class="p">(</span><span class="n">svr</span><span class="p">,</span> <span class="n">n_features_to_select</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">#rfe.fit(Xn, y)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rfe</span><span class="o">.</span><span class="n">ranking_</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">62</span><span class="o">-</span><span class="mi">2</span><span class="n">ae34cb8c3ba</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">rfe</span><span class="o">.</span><span class="n">ranking_</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;rfe&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">rs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">ns</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">ns</span><span class="p">):</span>
+    <span class="n">Xn_</span> <span class="o">=</span> <span class="n">Xn</span><span class="p">[</span><span class="n">Xn</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">rfe</span><span class="o">.</span><span class="n">ranking_</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">]]</span>
+    <span class="n">y_predict</span> <span class="o">=</span> <span class="n">cross_val_predict</span><span class="p">(</span><span class="n">svr</span><span class="p">,</span> <span class="n">Xn_</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">LeaveOneOut</span><span class="p">(),</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">rs</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">63</span><span class="o">-</span><span class="n">c73817f7b325</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">ns</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">rs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">ns</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">ns</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">Xn_</span> <span class="o">=</span> <span class="n">Xn</span><span class="p">[</span><span class="n">Xn</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">rfe</span><span class="o">.</span><span class="n">ranking_</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">]]</span>
+
+<span class="ne">NameError</span>: name &#39;SVR&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rs</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f014caf3290&gt;
+</pre></div>
+</div>
+<img alt="_images/PredictingOdorDivergenceModel_24_1.png" src="_images/PredictingOdorDivergenceModel_24_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Cs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">rs_in</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">Cs</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">rs_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">Cs</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">rhos_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">Cs</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">Xn_</span> <span class="o">=</span> <span class="n">Xn</span><span class="p">[</span><span class="n">Xn</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">rfe</span><span class="o">.</span><span class="n">ranking_</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">]]</span>
+<span class="k">for</span> <span class="n">C</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">Cs</span><span class="p">):</span>
+    <span class="n">svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span>
+    <span class="n">clf</span> <span class="o">=</span> <span class="n">svr</span>
+    <span class="c1">#y_predict = cross_val_predict(rfr, Xn, y, cv=LeaveOneOut(), n_jobs=-1)</span>
+    <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xn_</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">y_predict_in</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xn_</span><span class="p">)</span>
+    <span class="n">y_predict_out</span> <span class="o">=</span> <span class="n">cross_val_predict</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">Xn_</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">LeaveOneOut</span><span class="p">(),</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">y_predict_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_predict_in</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+    <span class="n">y_predict_out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_predict_out</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+    <span class="n">rs_in</span><span class="p">[</span><span class="n">C</span><span class="p">]</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_predict_in</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">rs_out</span><span class="p">[</span><span class="n">C</span><span class="p">]</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_predict_out</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">rhos_out</span><span class="p">[</span><span class="n">C</span><span class="p">]</span> <span class="o">=</span> <span class="n">spearmanr</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_predict_out</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "dd9327ffac634c4eac32cd0df54a5b44", "version_major": 2, "version_minor": 0}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rs_in</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;In-sample prediction R&#39;</span><span class="p">)</span>
+<span class="n">rs_out</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Out-of-sample prediction R&#39;</span><span class="p">)</span>
+<span class="n">rhos_out</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Out-of-sample prediction $\rho$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Correlation</span><span class="se">\n</span><span class="s1">(predicted vs observed)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;C (SVR hyperparameter)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f014cb51650&gt;
+</pre></div>
+</div>
+<img alt="_images/PredictingOdorDivergenceModel_26_1.png" src="_images/PredictingOdorDivergenceModel_26_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xn_</span> <span class="o">=</span> <span class="n">Xn</span><span class="p">[</span><span class="n">Xn</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">rfe</span><span class="o">.</span><span class="n">ranking_</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">]]</span>
+<span class="n">rfr</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y_predict</span> <span class="o">=</span> <span class="n">cross_val_predict</span><span class="p">(</span><span class="n">rfr</span><span class="p">,</span> <span class="n">Xn_</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">LeaveOneOut</span><span class="p">(),</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4983942074677981
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rfr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xn_</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">rfr</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span> <span class="n">Xn_</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>det            0.176796
+ATSC6dv        0.062489
+Xp-5d          0.045340
+TIC2           0.039908
+ATSC4i         0.032647
+piPC8          0.028903
+ATSC1p         0.025059
+ATSC8dv        0.018635
+GATS5c         0.017560
+SsssCH         0.016195
+AATSC3c        0.015393
+SdssC          0.015246
+AXp-3d         0.014767
+EState_VSA2    0.014738
+JGI3           0.014481
+ATS8v          0.014290
+MATS5i         0.013840
+ATSC7m         0.013457
+VSA_EState7    0.013454
+AATSC5d        0.013390
+GATS3c         0.013261
+ATSC8d         0.013127
+GATS3se        0.012693
+GATS1d         0.011737
+GATS1s         0.011484
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_predict</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">LeaveOneOut</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;whitegrid&#39;</span><span class="p">)</span>
+<span class="n">svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span>
+<span class="n">svr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xn_mordred</span><span class="p">,</span> <span class="n">y_mordred</span><span class="p">)</span>
+<span class="n">y_predict</span> <span class="o">=</span> <span class="n">cross_val_predict</span><span class="p">(</span><span class="n">svr</span><span class="p">,</span> <span class="n">Xn_mordred</span><span class="p">,</span> <span class="n">y_mordred</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">LeaveOneOut</span><span class="p">(),</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y_predict</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_predict</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_mordred</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="c1">#maxx = y.max()*1.01</span>
+<span class="c1">#plt.plot([0, maxx], [0, maxx], &#39;--&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="c1">#plt.xlim(0.9, maxx)</span>
+<span class="c1">#plt.ylim(0.9, maxx)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;R = </span><span class="si">%.2g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">y_mordred</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="c1">#ticks = range(5)</span>
+<span class="c1">#plt.xticks(ticks)</span>
+<span class="c1">#plt.yticks(ticks)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;1x&quot;</span><span class="p">,</span> <span class="s2">&quot;10x&quot;</span><span class="p">,</span> <span class="s2">&quot;100x&quot;</span><span class="p">,</span> <span class="s2">&quot;1000x&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;1x&quot;</span><span class="p">,</span> <span class="s2">&quot;10x&quot;</span><span class="p">,</span> <span class="s2">&quot;100x&quot;</span><span class="p">,</span> <span class="s2">&quot;1000x&quot;</span><span class="p">])</span>
+<span class="c1"># plt.xticks(ticks, [&#39;%d&#39; % 10**x for x in ticks])</span>
+<span class="c1"># plt.yticks(ticks, [&#39;%d&#39; % 10**x for x in ticks])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Actual Detection Threshold Ratio&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Predicted Detection</span><span class="se">\n</span><span class="s1">Threshold Ratio&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Predicted Detection\nThreshold Ratio&#39;)
+</pre></div>
+</div>
+<img alt="_images/PredictingOdorDivergenceModel_29_1.png" src="_images/PredictingOdorDivergenceModel_29_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_predict</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">LeaveOneOut</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;whitegrid&#39;</span><span class="p">)</span>
+<span class="n">svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span>
+<span class="n">svr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xn_morgan</span><span class="p">,</span> <span class="n">y_morgan</span><span class="p">)</span>
+<span class="n">y_predict</span> <span class="o">=</span> <span class="n">cross_val_predict</span><span class="p">(</span><span class="n">svr</span><span class="p">,</span> <span class="n">Xn_morgan</span><span class="p">,</span> <span class="n">y_morgan</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">LeaveOneOut</span><span class="p">(),</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y_predict</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_predict</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_morgan</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;R = </span><span class="si">%.2g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">y_morgan</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;1x&quot;</span><span class="p">,</span> <span class="s2">&quot;10x&quot;</span><span class="p">,</span> <span class="s2">&quot;100x&quot;</span><span class="p">,</span> <span class="s2">&quot;1000x&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;1x&quot;</span><span class="p">,</span> <span class="s2">&quot;10x&quot;</span><span class="p">,</span> <span class="s2">&quot;100x&quot;</span><span class="p">,</span> <span class="s2">&quot;1000x&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Actual Detection Threshold Ratio&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Predicted Detection</span><span class="se">\n</span><span class="s1">Threshold Ratio&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Predicted Detection\nThreshold Ratio&#39;)
+</pre></div>
+</div>
+<img alt="_images/PredictingOdorDivergenceModel_30_1.png" src="_images/PredictingOdorDivergenceModel_30_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">svr</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f014cf529d0&gt;
+</pre></div>
+</div>
+<img alt="_images/PredictingOdorDivergenceModel_31_1.png" src="_images/PredictingOdorDivergenceModel_31_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abraham</span> <span class="o">=</span> <span class="n">pyrfume</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="s1">&#39;abraham_2011/abraham-2011-with-CIDs.csv&#39;</span><span class="p">)</span>
+<span class="n">abraham</span> <span class="o">=</span> <span class="n">abraham</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SMILES&#39;</span><span class="p">])</span>
+<span class="kn">from</span> <span class="nn">pyrfume.features</span> <span class="kn">import</span> <span class="n">smiles_to_mordred</span>
+<span class="n">abraham_mordred</span> <span class="o">=</span> <span class="n">smiles_to_mordred</span><span class="p">(</span><span class="n">abraham</span><span class="p">[</span><span class="s1">&#39;SMILES&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-----------------------100%---------------------] 311 out of 311 complete (Finished embedding all molecules)
+Computing Mordred features...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 249/249 [00:09&lt;00:00, 27.42it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 249 molecules and 1826 features
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#X = abraham_mordred.join(abraham.set_index(&#39;SMILES&#39;).drop([&#39;Substance&#39;, &#39;Group&#39;], axis=1), how=&#39;inner&#39;, rsuffix=&#39;abr_&#39;)</span>
+<span class="n">abe_ok</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;MW&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Log (1/ODT)&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;E&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;S&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;A&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;B&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;L&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;V&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;M&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;AL&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;AC&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;ES&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;C1&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;C1AC&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;C1AL&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;HS&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;C2&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;C2Al&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;C2AC&#39;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">abraham_mordred</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">abraham</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;SMILES&#39;</span><span class="p">)[[</span><span class="s1">&#39;Log (1/ODT)&#39;</span><span class="p">]],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s1">&#39;abr_&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;Log (1/ODT)&#39;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Log (1/ODT)&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">#finite_all = X.dropna(axis=1).columns.intersection(finite_mordred)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">finite_mordred</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Xn</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">Xn</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">38</span><span class="o">-</span><span class="mi">8</span><span class="n">ad311015e43</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Log (1/ODT)&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="c1">#finite_all = X.dropna(axis=1).columns.intersection(finite_mordred)</span>
+<span class="ne">---&gt; </span><span class="mi">25</span> <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">finite_mordred</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="n">Xn</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="nn">~/.local/lib/python3.7/site-packages/pandas/core/frame.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2804</span>             <span class="k">if</span> <span class="n">is_iterator</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2805</span>                 <span class="n">key</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2806</span>             <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span><span class="o">.</span><span class="n">_get_listlike_indexer</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">raise_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">2807</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2808</span>         <span class="c1"># take() does not accept boolean indexers</span>
+
+<span class="nn">~/.local/lib/python3.7/site-packages/pandas/core/indexing.py</span> in <span class="ni">_get_listlike_indexer</span><span class="nt">(self, key, axis, raise_missing)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1551</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1552</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_read_indexer</span><span class="p">(</span>
+<span class="ne">-&gt; </span><span class="mi">1553</span>             <span class="n">keyarr</span><span class="p">,</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">o</span><span class="o">.</span><span class="n">_get_axis_number</span><span class="p">(</span><span class="n">axis</span><span class="p">),</span> <span class="n">raise_missing</span><span class="o">=</span><span class="n">raise_missing</span>
+<span class="g g-Whitespace">   </span><span class="mi">1554</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1555</span>         <span class="k">return</span> <span class="n">keyarr</span><span class="p">,</span> <span class="n">indexer</span>
+
+<span class="nn">~/.local/lib/python3.7/site-packages/pandas/core/indexing.py</span> in <span class="ni">_validate_read_indexer</span><span class="nt">(self, key, indexer, axis, raise_missing)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1644</span>             <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;loc&quot;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">raise_missing</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1645</span>                 <span class="n">not_found</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">ax</span><span class="p">))</span>
+<span class="ne">-&gt; </span><span class="mi">1646</span>                 <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">not_found</span><span class="si">}</span><span class="s2"> not in index&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1647</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1648</span>             <span class="c1"># we skip the warning on Categorical/Interval</span>
+
+<span class="ne">KeyError</span>: &quot;[&#39;det&#39;] not in index&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Cs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">rs_in</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">Cs</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">rs_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">Cs</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">rhos_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">Cs</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">C</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">Cs</span><span class="p">):</span>
+    <span class="n">svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span>
+    <span class="n">clf</span> <span class="o">=</span> <span class="n">svr</span>
+    <span class="c1">#y_predict = cross_val_predict(rfr, Xn, y, cv=LeaveOneOut(), n_jobs=-1)</span>
+    <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xn</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">y_predict_in</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xn</span><span class="p">)</span>
+    <span class="n">y_predict_out</span> <span class="o">=</span> <span class="n">cross_val_predict</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">Xn</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">LeaveOneOut</span><span class="p">(),</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">y_predict_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_predict_in</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+    <span class="n">y_predict_out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_predict_out</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+    <span class="n">rs_in</span><span class="p">[</span><span class="n">C</span><span class="p">]</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_predict_in</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">rs_out</span><span class="p">[</span><span class="n">C</span><span class="p">]</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_predict_out</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">rhos_out</span><span class="p">[</span><span class="n">C</span><span class="p">]</span> <span class="o">=</span> <span class="n">spearmanr</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_predict_out</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rs_in</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;In-sample prediction R&#39;</span><span class="p">)</span>
+<span class="n">rs_out</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Out-of-sample prediction R&#39;</span><span class="p">)</span>
+<span class="n">rhos_out</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Out-of-sample prediction $\rho$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Correlation</span><span class="se">\n</span><span class="s1">(predicted vs observed)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;C (SVR hyperparameter)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span>
+<span class="n">svr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xn</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">X_</span> <span class="o">=</span> <span class="n">mordred_data</span><span class="p">[</span><span class="n">finite_mordred</span><span class="p">];</span> <span class="n">y_</span> <span class="o">=</span> <span class="n">mordred_data</span><span class="p">[</span><span class="s1">&#39;log_abs&#39;</span><span class="p">]</span>
+<span class="n">X_</span> <span class="o">=</span> <span class="n">X_</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">half_coleman_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;SMILES String&#39;</span><span class="p">)[</span><span class="s1">&#39;det&#39;</span><span class="p">])</span>
+<span class="n">X_</span> <span class="o">=</span> <span class="n">X_</span><span class="p">[</span><span class="n">y_</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">y_</span> <span class="o">=</span> <span class="n">y_</span><span class="p">[</span><span class="n">y_</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">Xn_</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">X_</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">X_</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">X_</span><span class="p">[</span><span class="s1">&#39;det&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">svr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xn_</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;det&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="c1">#y_predict = cross_val_predict(svr, Xn, y, cv=LeaveOneOut(), n_jobs=-1)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xn_</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">X_</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">X_</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">Cs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">rs_in</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">Cs</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">rs_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">Cs</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">rhos_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">Cs</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">C</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">Cs</span><span class="p">):</span>
+    <span class="n">svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span>
+    <span class="n">clf</span> <span class="o">=</span> <span class="n">svr</span>
+    <span class="c1">#y_predict = cross_val_predict(rfr, Xn, y, cv=LeaveOneOut(), n_jobs=-1)</span>
+    <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xn_</span><span class="p">,</span> <span class="n">y_</span><span class="p">)</span>
+    <span class="n">y_predict_in</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xn_</span><span class="p">)</span>
+    <span class="n">y_predict_out</span> <span class="o">=</span> <span class="n">cross_val_predict</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">Xn_</span><span class="p">,</span> <span class="n">y_</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">LeaveOneOut</span><span class="p">(),</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">y_predict_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_predict_in</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+    <span class="n">y_predict_out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_predict_out</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+    <span class="n">rs_in</span><span class="p">[</span><span class="n">C</span><span class="p">]</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">y_</span><span class="p">,</span> <span class="n">y_predict_in</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">rs_out</span><span class="p">[</span><span class="n">C</span><span class="p">]</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">y_</span><span class="p">,</span> <span class="n">y_predict_out</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">rhos_out</span><span class="p">[</span><span class="n">C</span><span class="p">]</span> <span class="o">=</span> <span class="n">spearmanr</span><span class="p">(</span><span class="n">y_</span><span class="p">,</span> <span class="n">y_predict_out</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rs_in</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;In-sample prediction R&#39;</span><span class="p">)</span>
+<span class="n">rs_out</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Out-of-sample prediction R&#39;</span><span class="p">)</span>
+<span class="n">rhos_out</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Out-of-sample prediction $\rho$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Correlation</span><span class="se">\n</span><span class="s1">(predicted vs observed)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;C (SVR hyperparameter)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="conclusion.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Conclusion</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ThirdPartyEmbeddings.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3rd Party Embeddings</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Liyah Coleman (she/her)<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

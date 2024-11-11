@@ -1,0 +1,29 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+# defaults:
+#   titlesonly: True
+parts:
+  - caption: Background
+    chapters:
+    - file: chirality
+    - file: enantiomer
+    - file: odordivergence
+  - caption: Research Project
+    chapters:
+    - file: problemstatement
+    - file: pastapproach
+    - file: newapproach
+    - file: detectionthreshold
+    - file: svr
+    - file: conclusion
+  - caption: Notebooks With Code
+    chapters:
+    - file: LoadData
+    - file: CutDataFrameHalf
+    - file: MordredAndMorgan
+    - file: ThirdPartyEmbeddings
+    - file: PCAAndVCD
+      title: Testing with PCA and VCD Features

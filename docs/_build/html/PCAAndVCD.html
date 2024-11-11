@@ -1,0 +1,1010 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Testing with PCA and VCD Features &#8212; Enantiomer Odor Thesis</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'PCAAndVCD';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="3rd Party Embeddings" href="ThirdPartyEmbeddings.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/enantiomers.png" class="logo__image only-light" alt="Enantiomer Odor Thesis - Home"/>
+    <img src="_static/enantiomers.png" class="logo__image only-dark pst-js-only" alt="Enantiomer Odor Thesis - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Predicting Odor Divergence of Enantiomers
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chirality.html">Chirality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enantiomer.html">Enantiomers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odordivergence.html">Odor Divergence</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Research</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="problemstatement.html">Predicting Odor Divergence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pastapproach.html">Previous Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="newapproach.html">New Approach - Structural Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectionthreshold.html">Detection Threshold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="svr.html">Support Vector Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Conclusion</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebook</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LoadData.html">Load Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MordredAndMorgan.html">Mordred and Morgan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ThirdPartyEmbeddings.html">3rd Party Embeddings</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Testing with PCA and VCD Features</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPCAAndVCD.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/PCAAndVCD.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Testing with PCA and VCD Features</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="testing-with-pca-and-vcd-features">
+<h1>Testing with PCA and VCD Features<a class="headerlink" href="#testing-with-pca-and-vcd-features">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comput PCS and VCD features to feed into model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">half_enantiomer_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;half_enantiomer_data.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in pca and vcd dataframe to use as features</span>
+<span class="n">pca_vcd_values</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/vcd/pca_vcd_values.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca_vcd_values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Molecule Name</th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>(R)-(-)-Carvone</td>
+      <td>7.464317</td>
+      <td>-43.591126</td>
+      <td>-8.046428</td>
+      <td>-0.574730</td>
+      <td>-3.580254</td>
+      <td>5.872903</td>
+      <td>-2.689295</td>
+      <td>0.910235</td>
+      <td>3.263888</td>
+      <td>1.241722</td>
+      <td>-1.817992</td>
+      <td>-10.064818</td>
+      <td>-5.517172</td>
+      <td>6.956873</td>
+      <td>0.003187</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>(1R,2S,5R)-(-)-Menthol</td>
+      <td>-15.984788</td>
+      <td>-48.409755</td>
+      <td>11.599679</td>
+      <td>-6.459996</td>
+      <td>-2.895890</td>
+      <td>-21.817187</td>
+      <td>7.987366</td>
+      <td>30.168379</td>
+      <td>-4.855940</td>
+      <td>-27.966750</td>
+      <td>-15.593791</td>
+      <td>18.881794</td>
+      <td>6.680355</td>
+      <td>-3.869645</td>
+      <td>-18.299473</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>(-)-Menthyl chloride</td>
+      <td>-5.850617</td>
+      <td>-48.612997</td>
+      <td>25.383460</td>
+      <td>-1.972609</td>
+      <td>-9.623228</td>
+      <td>-12.079316</td>
+      <td>-5.014842</td>
+      <td>9.790833</td>
+      <td>-11.125811</td>
+      <td>-10.948924</td>
+      <td>12.772888</td>
+      <td>-4.068723</td>
+      <td>4.196934</td>
+      <td>0.326200</td>
+      <td>0.769741</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>(-)-Borneol</td>
+      <td>0.756580</td>
+      <td>-25.884643</td>
+      <td>-4.987043</td>
+      <td>6.148153</td>
+      <td>-18.167909</td>
+      <td>7.294051</td>
+      <td>-16.954397</td>
+      <td>9.166877</td>
+      <td>10.160046</td>
+      <td>8.512541</td>
+      <td>22.090822</td>
+      <td>-60.188603</td>
+      <td>5.246429</td>
+      <td>9.022766</td>
+      <td>-17.823573</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>(-)-Isoplegol</td>
+      <td>-12.599590</td>
+      <td>-33.717238</td>
+      <td>-12.966523</td>
+      <td>-18.479083</td>
+      <td>5.945713</td>
+      <td>-6.208222</td>
+      <td>-4.337392</td>
+      <td>10.783442</td>
+      <td>-12.640204</td>
+      <td>1.773643</td>
+      <td>1.927400</td>
+      <td>6.935122</td>
+      <td>5.856485</td>
+      <td>8.257695</td>
+      <td>-9.983220</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>156</th>
+      <td>β-Cholestanol</td>
+      <td>6.415996</td>
+      <td>-18.840982</td>
+      <td>20.303654</td>
+      <td>-29.238431</td>
+      <td>-26.058052</td>
+      <td>8.328641</td>
+      <td>-8.520251</td>
+      <td>19.753263</td>
+      <td>24.650594</td>
+      <td>37.600273</td>
+      <td>-1.058662</td>
+      <td>-16.200175</td>
+      <td>37.116864</td>
+      <td>-1.951506</td>
+      <td>-10.766619</td>
+    </tr>
+    <tr>
+      <th>157</th>
+      <td>Cholesterol Ethyl Carbonate</td>
+      <td>230.771312</td>
+      <td>139.215929</td>
+      <td>-45.562654</td>
+      <td>-28.445263</td>
+      <td>7.019739</td>
+      <td>-30.857068</td>
+      <td>18.819408</td>
+      <td>-6.542138</td>
+      <td>7.706800</td>
+      <td>-5.896378</td>
+      <td>7.642116</td>
+      <td>-5.188079</td>
+      <td>5.985704</td>
+      <td>-34.834249</td>
+      <td>-7.737224</td>
+    </tr>
+    <tr>
+      <th>158</th>
+      <td>Cholesterol n-Caprate</td>
+      <td>181.677425</td>
+      <td>33.151223</td>
+      <td>72.048835</td>
+      <td>-49.147260</td>
+      <td>19.664893</td>
+      <td>20.812246</td>
+      <td>-3.977717</td>
+      <td>5.351038</td>
+      <td>14.182154</td>
+      <td>-2.607771</td>
+      <td>6.333818</td>
+      <td>-0.251176</td>
+      <td>-7.470138</td>
+      <td>19.545668</td>
+      <td>-8.373291</td>
+    </tr>
+    <tr>
+      <th>159</th>
+      <td>Cholesterol Laurate</td>
+      <td>-130.152846</td>
+      <td>164.035229</td>
+      <td>61.091725</td>
+      <td>-37.136634</td>
+      <td>-13.847154</td>
+      <td>14.540341</td>
+      <td>-4.944992</td>
+      <td>-3.105062</td>
+      <td>2.508800</td>
+      <td>1.700032</td>
+      <td>5.700678</td>
+      <td>8.617406</td>
+      <td>-4.496284</td>
+      <td>22.150449</td>
+      <td>2.389079</td>
+    </tr>
+    <tr>
+      <th>160</th>
+      <td>Cholesterol Myristate</td>
+      <td>-132.817778</td>
+      <td>151.835799</td>
+      <td>66.528593</td>
+      <td>-50.454738</td>
+      <td>7.112731</td>
+      <td>21.576747</td>
+      <td>6.387919</td>
+      <td>-5.878909</td>
+      <td>-6.011154</td>
+      <td>7.648669</td>
+      <td>4.893929</td>
+      <td>7.866558</td>
+      <td>1.410726</td>
+      <td>11.221058</td>
+      <td>0.188386</td>
+    </tr>
+  </tbody>
+</table>
+<p>161 rows × 16 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set index to Molecule Name</span>
+<span class="n">pca_vcd_values</span> <span class="o">=</span> <span class="n">pca_vcd_values</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Molecule Name&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca_vcd_values</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+    </tr>
+    <tr>
+      <th>Molecule Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>(R)-(-)-Carvone</th>
+      <td>7.464317</td>
+      <td>-43.591126</td>
+      <td>-8.046428</td>
+      <td>-0.574730</td>
+      <td>-3.580254</td>
+      <td>5.872903</td>
+      <td>-2.689295</td>
+      <td>0.910235</td>
+      <td>3.263888</td>
+      <td>1.241722</td>
+      <td>-1.817992</td>
+      <td>-10.064818</td>
+      <td>-5.517172</td>
+      <td>6.956873</td>
+      <td>0.003187</td>
+    </tr>
+    <tr>
+      <th>(1R,2S,5R)-(-)-Menthol</th>
+      <td>-15.984788</td>
+      <td>-48.409755</td>
+      <td>11.599679</td>
+      <td>-6.459996</td>
+      <td>-2.895890</td>
+      <td>-21.817187</td>
+      <td>7.987366</td>
+      <td>30.168379</td>
+      <td>-4.855940</td>
+      <td>-27.966750</td>
+      <td>-15.593791</td>
+      <td>18.881794</td>
+      <td>6.680355</td>
+      <td>-3.869645</td>
+      <td>-18.299473</td>
+    </tr>
+    <tr>
+      <th>(-)-Menthyl chloride</th>
+      <td>-5.850617</td>
+      <td>-48.612997</td>
+      <td>25.383460</td>
+      <td>-1.972609</td>
+      <td>-9.623228</td>
+      <td>-12.079316</td>
+      <td>-5.014842</td>
+      <td>9.790833</td>
+      <td>-11.125811</td>
+      <td>-10.948924</td>
+      <td>12.772888</td>
+      <td>-4.068723</td>
+      <td>4.196934</td>
+      <td>0.326200</td>
+      <td>0.769741</td>
+    </tr>
+    <tr>
+      <th>(-)-Borneol</th>
+      <td>0.756580</td>
+      <td>-25.884643</td>
+      <td>-4.987043</td>
+      <td>6.148153</td>
+      <td>-18.167909</td>
+      <td>7.294051</td>
+      <td>-16.954397</td>
+      <td>9.166877</td>
+      <td>10.160046</td>
+      <td>8.512541</td>
+      <td>22.090822</td>
+      <td>-60.188603</td>
+      <td>5.246429</td>
+      <td>9.022766</td>
+      <td>-17.823573</td>
+    </tr>
+    <tr>
+      <th>(-)-Isoplegol</th>
+      <td>-12.599590</td>
+      <td>-33.717238</td>
+      <td>-12.966523</td>
+      <td>-18.479083</td>
+      <td>5.945713</td>
+      <td>-6.208222</td>
+      <td>-4.337392</td>
+      <td>10.783442</td>
+      <td>-12.640204</td>
+      <td>1.773643</td>
+      <td>1.927400</td>
+      <td>6.935122</td>
+      <td>5.856485</td>
+      <td>8.257695</td>
+      <td>-9.983220</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copy original dataframe</span>
+<span class="n">half_enantiomer_data_copy</span> <span class="o">=</span> <span class="n">half_enantiomer_data</span>
+<span class="n">half_enantiomer_data_copy</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Keep the columns in the gme df that match the index names in original dataset</span>
+<span class="n">common_index</span> <span class="o">=</span> <span class="n">half_enantiomer_data_copy</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">pca_vcd_values</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">half_enantiomer_data_copy</span> <span class="o">=</span> <span class="n">half_enantiomer_data_copy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">common_index</span><span class="p">]</span>
+<span class="n">pca_vcd_features</span> <span class="o">=</span> <span class="n">pca_vcd_values</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">common_index</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combine original dataset with pca_vcd</span>
+<span class="n">pca_vcd</span> <span class="o">=</span> <span class="n">half_enantiomer_data_copy</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pca_vcd_features</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca_vcd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Unnamed: 0.1</th>
+      <th>Molecule Name</th>
+      <th>Pubchem ID #</th>
+      <th>Note</th>
+      <th>SMILES String</th>
+      <th>Other SMILES</th>
+      <th>Method</th>
+      <th>Contributor</th>
+      <th>Detection Threshold</th>
+      <th>...</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<p>0 rows × 32 columns</p>
+</div></div></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ThirdPartyEmbeddings.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3rd Party Embeddings</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Liyah Coleman (she/her)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
