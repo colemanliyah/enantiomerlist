@@ -6,7 +6,7 @@ To avoid overfitting, we applied regularization to the regression model and esti
 
 The results for strictly using Mordred features were as follows:
 
-<img src="../modelresults/mordred.png">
+![test](./modelresults/mordred.png)
 
 With a correlation metric value of 0.56:
 
